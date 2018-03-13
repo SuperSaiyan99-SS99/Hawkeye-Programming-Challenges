@@ -1,3 +1,7 @@
+'''
+Image Compression
+'''
+
 def compress_image(uncompressed_image):
     output = ''
 
