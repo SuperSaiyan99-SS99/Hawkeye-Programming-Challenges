@@ -3,25 +3,32 @@ Image Compression
 '''
 
 def compress_image(uncompressed_image):
-    output = ''
 
-    while len(uncompressed_image) != 0:
-        occurences = 0
-        current_char = uncompressed_image[0]
-        index = 0
-
-        while uncompressed_image[index] == current_char:
-            occurences += 1
-            index += 1
-        
-            if index >= len(uncompressed_image):
-                break
+    # Unpack input
+    # Don't really care about the number of rows or columns,
+    # we'll figure it out when looping over the rows anyway
+    _, num_columns, *rows = uncompressed_image.split('\n')
     
-        output += '{}{}'.format(occurences, current_char)
-        uncompressed_image = uncompressed_image[index:]
+    for row in rows:
+        occurence = 0
+        current_char = row[0]
+        output = ''
         
-    return output
+        for i in range(int(num_columns)):
+            if row[i] == current_char:
+                occurence += 1
+            else:
+                output += '{}{}'.format(occurence, current_char)
+                occurence = 1
+                current_char = row[i]
 
-
-print(compress_image('BBBBBBBBBBBBBBBBSSSSSSSSBBBBBBBBBBBBBBBBBBBBBB'))
-print(compress_image('BBBBBBBBBBBBBBBBBBBBBBBBBBBWWWWWWWWWBBBBBBBBBB'))
+        # Add last one we were counting when loop ended
+        output += '{}{}'.format(occurence, current_char)
+            
+        print(output)
+        
+sample_input_0 = '''2
+46
+BBBBBBBBBBBBBBBBSSSSSSSSBBBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBBBBBBBBBBBBBBBBWWWWWWWWWBBBBBBBBBB'''
+compress_image(sample_input_0)

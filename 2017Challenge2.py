@@ -10,7 +10,6 @@ def contains_pair(num_list):
             if i == j:
                 continue
             if num_list[i] + num_list[j] == 0:
-                print('Yep, {} + {} = 0'.format(num_list[i], num_list[j]))
                 return True
     
     return False
