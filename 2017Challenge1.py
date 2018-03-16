@@ -5,8 +5,8 @@ Image Compression
 def compress_image(uncompressed_image):
 
     # Unpack input
-    # Don't really care about the number of rows or columns,
-    # we'll figure it out when looping over the rows anyway
+    # Don't really care about the number of rows,
+    # we'll figure it out when looping over them anyway
     _, num_columns, *rows = uncompressed_image.split('\n')
     
     for row in rows:
