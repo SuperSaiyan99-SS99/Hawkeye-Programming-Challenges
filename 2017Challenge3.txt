@@ -1,0 +1,9 @@
+8
+1,R,P,S,R,P,S,R,P,S
+2,S,R,S,P,R,S,P,P,S
+3,R,S,P,S,S,S,R,P,R
+4,R,S,R,R,R,R,S,R,R
+5,R,R,R,R,R,R,R,R,R
+6,S,S,S,S,S,S,S,S,S
+7,P,S,P,S,P,S,P,S,P
+8,R,S,P,S,R,P,S,R,P
