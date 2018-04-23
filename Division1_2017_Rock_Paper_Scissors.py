@@ -59,7 +59,7 @@ Sample Output 0
 
 lines = None
 
-filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), '2017Challenge3.txt')
+filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Division1_2017_Rock_Paper_Scissors.txt')
 try:
     with open(filename, 'r') as f:
         lines = f.readlines()

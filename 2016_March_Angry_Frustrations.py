@@ -19,7 +19,7 @@ while len(names) > 1:
             names.remove(bracket[1])
         else:
             names.remove(bracket[0])
-    print()
+    print
 
 print('({})'.format(names[0]))
 

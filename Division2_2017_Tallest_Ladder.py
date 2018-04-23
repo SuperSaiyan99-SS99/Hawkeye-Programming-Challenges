@@ -2,7 +2,7 @@
 import os
 from sys import exit
 
-filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Division2_2017Challenge1.txt')
+filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Division2_2017_Tallest_Ladder.txt')
 print(filename)
 
 lines = None
