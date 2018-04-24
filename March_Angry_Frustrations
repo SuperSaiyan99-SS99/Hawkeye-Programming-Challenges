@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class marchAngryFrustrations
+{
+    public static void main(String[] args)
+    {
+        // User input
+        Scanner in = new Scanner (System.in);
+        // Execute method using user input
+        System.out.println(marchAngryFrustrations.winner(in.nextLine()));
+    }
+    
+    public static String winner(String input)
+    {
+        // Initialization list
+        String teamOne = input.substring(0, input.indexOf(",")).trim();
+        String teamTwo = input.substring(input.indexOf(",") + 1).trim();
+        // If the first letter of the teams are equal...
+        if (teamOne.substring(0, 1).equals(teamTwo.substring(0, 1)))
+        {
+            // ...return the longer team name.
+            if(teamOne.length() > teamTwo.length())
+            return teamOne;
+            else
+            return teamTwo;
+        }
+        // If the first letter of the teams aren't equal...
+        else
+        // ...return the team that comes first alphabetically.
+        if (teamOne.substring(0, 1).compareTo(teamTwo.substring(0, 1)) > 0)
+        return teamTwo;
+        else
+        return teamOne;
+    }
+}
