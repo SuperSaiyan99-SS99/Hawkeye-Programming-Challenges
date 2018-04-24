@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class politicalFever
+{
+    public static void main (String[] args) {
+       // User input
+       Scanner in = new Scanner (System.in);
+       // Execute method using user input
+       politicalFever.calculation(in.nextLine());
+    }
+    public static void calculation(String received)
+    {
+        // Initialization List
+        int[] candidate = {0, 0, 0};
+        double[] percent = {0.0, 0.0, 0.0};
+        // Store the total delegates of user input as an integer
+        int totalDelegate = Integer.valueOf(received.substring
+        (0, received.indexOf(" ")));
+        // Delete total delegate from string
+        received = received.substring(received.indexOf(" ")).trim();
+        // Obtain the values of the remaining string as a double
+        percent[0] = Double.valueOf(received.substring
+        (0, received.indexOf(" ")));
+        percent[1] = Double.valueOf(received.substring
+        (received.indexOf(" ")).trim());
+        // Calculate the final percent using the other percent values
+        percent[2] = 1 - (percent[0] + percent[1]);
+        for (int i = 0; i < percent.length; i++)
+        {
+            // If the percent of delegates for one of the candidates
+            // is greater than 50%...
+            if (percent[i] > .5)
+            {
+                // ...set that candidate's delegates equal to all of the
+                // delegates.
+                candidate[i] = totalDelegate;
+                for (int j = 0; j < percent.length; j++) {
+                    // Set the rest of the candidates' delegates to 0.
+                    if(j != i) {
+                        candidate[j] = 0;
+                    }               
+                }
+                // End the loop
+                break;
+            }
+            // If the percent of delegates for one of the candidates
+            // is less than 15%...
+            else if (percent[i] < .15)
+            {
+                // ...set that candidate's delegates to 0.
+                candidate[i] = 0;
+                for (int j = 0; j < percent.length; j++) {
+                    // Split the candidate's delegates throughout the
+                    // other candidates.
+                    if(j != i) {
+                        candidate[j] += totalDelegate * percent[i] /
+                        (candidate.length - 1);
+                    }               
+                }
+            }
+            else
+            // Calculate the amount of delegates the candidates receive
+            // for any other percent values (which can only be between
+            // .15 and .5).
+            candidate[i] += totalDelegate * percent[i];
+        }
+        // Print the result of the delegates
+        System.out.println("Candidate1: " + candidate[0]);
+        System.out.println("Candidate2: " + candidate[1]);
+        System.out.println("Candidate3: " + candidate[2]);
+    }
+}
